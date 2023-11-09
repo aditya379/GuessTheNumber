@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess The number</title>
+    <style>
+
+* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        font-family: Arial, sans-serif;
+      }
+
+      nav {
+        font-size: 16px;
+        height: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        background-color: yellow;
+      }
+
+      .logo {
+        width: 150px;
+      }
+
+      ul {
+        display: flex;
+        width: 50vw;
+        align-items: flex-end;
+        justify-content: flex-end;
+      }
+      li {
+        list-style: none;
+        padding: 0px 20px;
+        border: 1px solid blackk;
+        cursor: pointer;
+      }       
+
+        .container{
+            border: 1px solid black;
+            padding: 20px;display: flex;
+            height: 86.4vh;
+            color: white;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(0, 0, 0);
+        }
+
+        .Gen{
+            margin: 30px;
+            font-size: 5rem;
+        }
+        .Gen::first-letter{
+            color: yellow;
+        }
+        .Highlight{
+            color: yellow;
+        }
+        .Gen::f
+        #number{
+            width: 1000px;
+            height: 30px;
+        }
+        button{
+            margin-top: 20px;
+            width: 50px;
+        }
+
+        .mainhead,.autoHeading,.userHeading{
+            margin-top: 20px;
+            color: white;
+        }
+    </style>
+</head>
+
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="Mainbox">
+          <img
+            src="https://www.ultraedit.com/wp-content/uploads/2023/01/Dark-logo.png"
+            alt="logo"
+            class="logo"
+          />
+        </div>
+        <ul>
+          <li>Home</li>
+          <li>About Us</li>
+          <li>Contact Us</li>
+          <li>Services</li>
+        </ul>
+      </nav>
+
+
+    <div class="container">
+        <h1 class="Gen">Number <span class="Highlight">G</span>enerator</h1>
+        <input type="text" id="number" placeholder="Enter Number Between 1 to 100"/>
+        <button onclick="submitNumber()">Submit</button>
+        <div class="box">
+            <h1 class="mainhead"></h1>
+            <h2 class="autoHeading">Computer's Number is: </h2>
+            <h3 class="userHeading">Your Number is: </h3>
+        </div>
+    </div>
+
+    <script>
+        function submitNumber(){
+            let userinput = parseInt(document.getElementById('number').value);
+
+            if(!isNaN(userinput) && userinput >= 1 && userinput <= 100){
+                document.querySelector('.userHeading').textContent = "Your Number is: " + userinput;
+
+                let randomNumber = Math.floor(Math.random() * 100) + 1;
+                document.querySelector('.autoHeading').textContent = "Computer's Number is: " + randomNumber;
+
+                if(userinput === randomNumber){
+                    document.querySelector('.mainhead').textContent = "Congratulations! You guessed it!";
+                } else {
+                    document.querySelector('.mainhead').textContent = "Oops! Try again!";
+                }
+            } else {
+                document.querySelector('.mainhead').textContent = "Please enter a number between 1 and 100.";
+            }
+        }
+    </script>
+</body>
+</html>
